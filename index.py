@@ -3,6 +3,7 @@ def reverseNumber(number):
     mod = number % 10
     modd = number // 10
     n = mod * 10 + modd
+    return n
 
 
 def is_primary(number):
@@ -27,19 +28,22 @@ def Q310NUmber():
     minn = lst[0]
     total = 0
     for i in lst:
-        if i > max:
+        if i > maxx:
             maxx = i
-        if i < min:
+        if i < minn:
             minn = i
         total += i
-    print('Max : {0}\n\rMin : {1}\n\rTotal : {3}\n\rAverage : {4}'.format(maxx, minn, total, total / 10))
+    print('Max : {0}\n\rMin : {1}\n\rTotal : {2}\n\rAverage : {3}'.format(maxx, minn, total, total / 10))
 
 
-def Q4Zeros(number):
+def Question4(number):
     if number >= 100000:
         return 0
     count = 0
     while number > 0:
-        count += (number % 10 > 0 ? 0 : 1)
-        number /= 10
+        if number % 10 > 0:
+            count += 0
+        else:
+            count += 1
+        number //= 10
     return count
